@@ -2,7 +2,7 @@
 library(tidyverse)
 
 #Import the Mexican national survey data
-national_survey_data <- read_csv(file = "https://raw.githubusercontent.com/HarvardMapCollection/modalities-cleaning/main/original/tabular/ENPOL2021_2_3.csv")
+national_survey_data <- read_csv(file = "https://raw.githubusercontent.com/HarvardMapCollection/modalities-cleaning/main/national-survey/original-source-data/tabular/ENPOL2021_2_3.csv")
 
 #Let's pare the source data's 184 columns (😅) down to the only one we want to map
 national_survey_data <- national_survey_data %>% select ("P3_6") 
