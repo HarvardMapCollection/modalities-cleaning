@@ -4,7 +4,7 @@ import mapclassify #lets you specify classification scheme
 from pathlib import Path
 
 #Import geospatial data as a dataframe using geopandas
-geo_data = geopandas.read_file("{PATH}/modalities-cleaning/national-survey/original-source-data/geo/mexico_admin1.geojson")
+geo_data = geopandas.read_file("{path}/modalities-cleaning/national-survey/original-source-data/geo/mexico_admin1.geojson")
 
 #Rename the join field so it matches with the statistical data
 geo_data = geo_data.rename(columns={"ID_1": "CRIME_LOC"})
@@ -29,11 +29,11 @@ map.set_axis_off()
 
 #Save the map as an image
 fig = map.get_figure()
-fig.savefig("{PATH}/output.png")
+fig.savefig("{path}/output.png")
 
 
 # ⭐ If you want to export the JOINED .geoJSON
-# geo_data.to_file(path, driver="GeoJSON")  
+# geo_data.to_file("{path}/crime_counts.geoJSON", driver="GeoJSON")  
 
 # ⭐ Useful print statements!
 # ---------------------------
