@@ -5,14 +5,17 @@ library(ggplot2)
 library(sf)
 
 #Read in GIS data
-geo_data <- geojson_sf("/Users/irlipton/Documents/GitHub/modalities-cleaning/national-survey/original-source-data/geo/mex_adm1.geojson")
+geo_data <- geojson_sf("[path]]mexico_admin1.geojson")
 
 #R imported the ID field, which we need as characters to join(merge), as a numeric field
 #The way it was imported, it also dropped the leading zeroes
+#Why not import dtypes? https://gis.stackexchange.com/questions/437038/specifying-dtype-of-columns-when-reading-in-data-with-geopandas
 geo_data$ID_1 <- as.character(str_pad(geo_data$ID_1,2,side="left",pad="0"))
 str(geo_data)
 
-#Read the statistical data
+#Read in statistical data
+#This is the result from taking all of the individual survey responses
+#And pivoting them to be grouped by count on the state where they occurred
 statistical_data <- read_csv(file = "https://raw.githubusercontent.com/HarvardMapCollection/modalities-cleaning/main/national-survey/steps/pivot/finished-R-export_crimes-by-state.csv")
 
 #Clean up the table a little bit
