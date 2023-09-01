@@ -25,7 +25,7 @@ geo_data <- merge(geo_data, statistical_data, by.x = "ID_1", by.y = "CRIME_LOC")
 geo_data[1, ]
 
 #Export
-st_write(geo_data, "/Users/irlipton/Downloads/mexstates.shp")
+st_write(geo_data, "[path]/mexstates.shp")
 
 #Make a map with graduated symbology based on the field "count"
 ggplot(geo_data) +
